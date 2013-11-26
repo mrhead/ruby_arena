@@ -29,4 +29,12 @@ class Robot
   def turn(angle)
     command_parser.turn(angle)
   end
+
+  def turn_gun(angle)
+    command_parser.turn_gun(angle)
+  end
+
+  def turn_radar(angle)
+    command_parser.turn_radar(angle)
+  end
 end
