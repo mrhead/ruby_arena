@@ -24,6 +24,10 @@ class Robot
     @tank.heading
   end
 
+  def tick
+    raise NotImplementedError, 'Your robot should implement tick method'
+  end
+
   private
 
   def turn(angle)

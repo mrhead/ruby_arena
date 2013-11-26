@@ -8,6 +8,12 @@ describe Robot do
     it { expect(robot).to respond_to :heading }
   end
 
+  describe '#tick' do
+    it 'raises NotImplementedError' do
+      expect { robot.tick }.to raise_error NotImplementedError
+    end
+  end
+
   def robot
     @_robot ||= Robot.new(command_parser: nil)
   end
