@@ -2,9 +2,13 @@ require 'robot'
 
 describe Robot do
   describe 'public interface' do
-    it { should respond_to :x }
-    it { should respond_to :y }
-    it { should respond_to :speed }
-    it { should respond_to :heading }
+    it { expect(robot).to respond_to :x }
+    it { expect(robot).to respond_to :y }
+    it { expect(robot).to respond_to :speed }
+    it { expect(robot).to respond_to :heading }
+  end
+
+  def robot
+    @_robot ||= Robot.new(command_parser: nil)
   end
 end

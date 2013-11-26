@@ -1,8 +1,11 @@
 require 'tank'
+require 'command_parser'
 
 class Robot
-  def initialize
+  attr_reader :tank, :command_parser
+  def initialize(args)
     @tank = Tank.new
+    @command_parser = args.fetch(:command_parser)
   end
 
   def x
@@ -19,5 +22,11 @@ class Robot
 
   def heading
     @tank.heading
+  end
+
+  private
+
+  def turn(angle)
+    command_parser.turn(angle)
   end
 end
