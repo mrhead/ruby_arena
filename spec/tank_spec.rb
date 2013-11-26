@@ -55,6 +55,16 @@ describe Tank do
     end
   end
 
+  describe '#turn' do
+    it 'changes heading by given value' do
+      tank = Tank.new(heading: 0)
+
+      tank.turn(10)
+
+      expect(tank.heading).to be 10
+    end
+  end
+
   def tank
     @_tank ||= Tank.new
   end

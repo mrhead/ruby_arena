@@ -23,6 +23,10 @@ class Tank
     @y += offset_y(heading, speed)
   end
 
+  def turn(degrees)
+    @heading += degrees
+  end
+
   private
 
   def offset_x(heading, speed)
