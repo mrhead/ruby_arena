@@ -63,6 +63,50 @@ describe Tank do
 
       expect(tank.heading).to be 10
     end
+
+    it 'changes gun heading by given value' do
+      tank = Tank.new(heading: 0)
+
+      tank.turn(20)
+
+      expect(tank.gun_heading).to be 20
+    end
+
+    it 'changes radar heading by given value' do
+      tank = Tank.new(heading: 0)
+
+      tank.turn(20)
+
+      expect(tank.radar_heading).to be 20
+    end
+  end
+
+  describe '#turn_gun' do
+    it 'changes gun heading by given value' do
+      tank = Tank.new(heading: 0)
+
+      tank.turn_gun(10)
+
+      expect(tank.gun_heading).to be 10
+    end
+
+    it 'changes radar heading by given value' do
+      tank = Tank.new(heading: 0)
+
+      tank.turn_gun(30)
+
+      expect(tank.radar_heading).to be 30
+    end
+  end
+
+  describe '#turn_radar' do
+    it 'changes radar heading by given value' do
+      tank = Tank.new(heading: 0)
+
+      tank.turn_radar(10)
+
+      expect(tank.radar_heading).to be 10
+    end
   end
 
   def tank

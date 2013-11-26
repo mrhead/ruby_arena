@@ -1,13 +1,15 @@
 require 'gosu'
 
 class Tank
-  attr_reader :x, :y, :speed, :heading
+  attr_reader :x, :y, :speed, :heading, :gun_heading, :radar_heading
 
   def initialize(args = {})
     @x = args[:x] || 0
     @y = args[:y] || 0
     @speed = 0
     @heading = args[:heading] || 0
+    @gun_heading = 0
+    @radar_heading = 0
   end
 
   def accelerate
@@ -25,6 +27,17 @@ class Tank
 
   def turn(degrees)
     @heading += degrees
+    @gun_heading += degrees
+    @radar_heading += degrees
+  end
+
+  def turn_gun(degrees)
+    @gun_heading += degrees
+    @radar_heading += degrees
+  end
+
+  def turn_radar(degrees)
+    @radar_heading += degrees
   end
 
   private
