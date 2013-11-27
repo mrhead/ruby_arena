@@ -26,7 +26,6 @@ describe CommandParser do
   end
 
   def command_parser
-    tank = double('tank')
-    @_command_parser ||= CommandParser.new(tank)
+    @_command_parser ||= CommandParser.new
   end
 end

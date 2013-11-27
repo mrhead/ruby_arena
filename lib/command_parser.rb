@@ -1,8 +1,7 @@
 class CommandParser
   attr_reader :actions
 
-  def initialize(tank)
-    @tank = tank
+  def initialize
     @actions = {}
   end
 

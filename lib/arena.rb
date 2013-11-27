@@ -1,11 +1,11 @@
 class Arena
-  attr_reader :robot_runners
+  attr_reader :robots
 
   def initialize(args)
-    @robot_runners = args.fetch(:robot_runners)
+    @robots = args.fetch(:robots)
   end
 
   def update
-    robot_runners.each(&:update)
+    robots.each(&:update)
   end
 end

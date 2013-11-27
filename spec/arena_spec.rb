@@ -1,22 +1,14 @@
 require 'arena'
 
 describe Arena do
-  describe 'public interface' do
-    it { expect(arena).to respond_to(:robot_runners) }
-  end
-
   describe '#update' do
-    it 'notifies all robot runners' do
-      robot_runner = double('robot_runner')
+    it 'notifies all robots' do
+      robot = double('robot')
 
-      expect(robot_runner).to receive(:update)
+      expect(robot).to receive(:update)
 
-      arena = Arena.new(robot_runners: [robot_runner])
+      arena = Arena.new(robots: [robot])
       arena.update
     end
-  end
-
-  def arena
-    @_arena ||= Arena.new(robot_runners: [])
   end
 end
