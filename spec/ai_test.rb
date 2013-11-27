@@ -1,0 +1,2 @@
+class AiTest
+end
