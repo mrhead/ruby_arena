@@ -1,11 +1,11 @@
 require 'robot'
 
 describe Robot do
-  describe '#update' do
-    it 'calls #tick on AI' do
+  describe '#tick' do
+    it 'notifies AI' do
       expect(ai).to receive(:tick)
 
-      robot.update
+      robot.tick
     end
   end
 

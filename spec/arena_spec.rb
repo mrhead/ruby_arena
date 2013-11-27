@@ -2,13 +2,19 @@ require 'arena'
 
 describe Arena do
   describe '#update' do
-    it 'notifies all robots' do
-      robot = double('robot')
-
+    it 'calls #tick on all robots and then #update on all robots' do
+      expect(robot).to receive(:tick)
       expect(robot).to receive(:update)
 
-      arena = Arena.new(robots: [robot])
       arena.update
     end
+  end
+
+  def arena
+    @_arena ||= Arena.new(robots: [robot])
+  end
+
+  def robot
+    @_robot ||= double('robot')
   end
 end

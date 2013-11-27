@@ -7,7 +7,7 @@ class Robot
     @command_parser = args.fetch(:command_parser)
   end
 
-  def update
+  def tick
     ai.tick
   end
 
