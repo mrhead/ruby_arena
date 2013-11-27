@@ -12,7 +12,8 @@ class Robot
   end
 
   def update
-    tank.execute_actions(command_parser.actions)
+    execute_actions_on_tank
+    move_tank
   end
 
   def turn(angle)
@@ -25,5 +26,15 @@ class Robot
 
   def turn_radar(angle)
     command_parser.turn_radar(angle)
+  end
+
+  private
+
+  def execute_actions_on_tank
+    tank.execute_actions(command_parser.actions)
+  end
+
+  def move_tank
+    tank.move
   end
 end

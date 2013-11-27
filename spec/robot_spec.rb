@@ -10,9 +10,10 @@ describe Robot do
   end
 
   describe '#update' do
-    it 'calls #execute_actions on tank' do
+    it 'calls #execute_actions and #move on tank' do
       expect(command_parser).to receive(:actions)
       expect(tank).to receive(:execute_actions)
+      expect(tank).to receive(:move)
 
       robot.update
     end
