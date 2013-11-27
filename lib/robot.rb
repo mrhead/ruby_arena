@@ -11,6 +11,10 @@ class Robot
     ai.tick
   end
 
+  def update
+    tank.execute_actions(command_parser.actions)
+  end
+
   def turn(angle)
     command_parser.turn(angle)
   end

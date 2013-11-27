@@ -12,6 +12,14 @@ class Tank
     @radar_heading = 0
   end
 
+  def execute_actions(actions = {})
+    turn(actions[:turn]) if actions[:turn]
+    turn_gun(actions[:turn_gun]) if actions[:turn_gun]
+    turn_radar(actions[:turn_radar]) if actions[:turn_radar]
+    accelerate if actions[:accelerate]
+    decelerate if actions[:decelerate]
+  end
+
   def accelerate
     @speed += 1
   end

@@ -109,6 +109,38 @@ describe Tank do
     end
   end
 
+  describe '#execute_actions' do
+    it 'turns tank if turn action is set' do
+      expect(tank).to receive(:turn).with(10)
+
+      tank.execute_actions({ turn: 10 })
+    end
+
+    it 'turns gun if turn_gun action is set' do
+      expect(tank).to receive(:turn_gun).with(20)
+
+      tank.execute_actions({ turn_gun: 20 })
+    end
+
+    it 'turns radar if turn_radar action is set' do
+      expect(tank).to receive(:turn_radar).with(30)
+
+      tank.execute_actions({ turn_radar: 30 })
+    end
+
+    it 'accelerate if accelerate action is set' do
+      expect(tank).to receive(:accelerate)
+
+      tank.execute_actions({ accelerate: true })
+    end
+
+    it 'decelerate if decelerate action is set' do
+      expect(tank).to receive(:decelerate)
+
+      tank.execute_actions({ decelerate: true })
+    end
+  end
+
   def tank
     @_tank ||= Tank.new
   end
