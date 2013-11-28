@@ -1,20 +1,16 @@
-class ObjectLoader
+class ClassLoader
   attr_reader :filename
 
   def initialize(filename)
     @filename = filename
+    require filename
   end
 
-  def load_from_file
-    require filename
-    create_object
+  def get_class
+    Object.const_get(class_name)
   end
 
   private
-
-  def create_object
-    Object.const_get(class_name).new
-  end
 
   def class_name
     File.basename(filename, '.rb').split('_').map(&:capitalize).join
