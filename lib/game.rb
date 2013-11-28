@@ -1,9 +1,9 @@
 require_relative 'arena'
+require_relative 'class_loader'
 require_relative 'command_parser'
 require_relative 'gui'
 require_relative 'robot'
 require_relative 'tank'
-require_relative 'class_loader'
 
 class Game
   def run
