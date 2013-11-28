@@ -3,9 +3,11 @@ require_relative 'command_parser'
 require_relative 'gui'
 require_relative 'robot'
 require_relative 'tank'
+require_relative 'class_loader'
 
 class Game
   def run
+    puts Dir.getwd
     gui.show
   end
 
@@ -20,12 +22,22 @@ class Game
   end
 
   def robots
-    ARGV.map do |ai_class|
+    ARGV.map do |file|
+      ai_class = load_class_from_file(file)
+
       Robot.new({
         ai: ai_class,
         command_parser: CommandParser.new,
         tank: Tank.new
       })
     end
+  end
+
+  def load_class_from_file(file)
+    ClassLoader.new("#{pwd}/#{file}").get_class
+  end
+
+  def pwd
+    Dir.getwd
   end
 end
