@@ -3,7 +3,7 @@ require 'robot'
 describe Robot do
   describe '#tick' do
     it 'notifies AI' do
-      expect(ai).to receive(:tick)
+      expect(robot.ai).to receive(:tick)
 
       robot.tick
     end
@@ -46,13 +46,9 @@ describe Robot do
   def robot
     @_robot ||= Robot.new(
       command_parser: command_parser,
-      ai: ai,
+      ai: RSpec::Mocks::Mock,
       tank: tank
     )
-  end
-
-  def ai
-    @_ai ||= double('ai')
   end
 
   def command_parser
