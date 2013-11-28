@@ -1,4 +1,4 @@
-class AI
+class Ai
   attr_reader :robot
 
   def initialize(args)
