@@ -1,6 +1,8 @@
 require 'gosu'
 
 class Tank
+  SIZE = 40
+
   attr_reader :x, :y, :speed, :heading, :gun_heading, :radar_heading
 
   def initialize(args = {})
@@ -46,6 +48,10 @@ class Tank
 
   def turn_radar(degrees)
     @radar_heading += degrees
+  end
+
+  def size
+    SIZE
   end
 
   private

@@ -28,6 +28,18 @@ class Robot
     command_parser.turn_radar(angle)
   end
 
+  def x
+    tank.x
+  end
+
+  def y
+    tank.y
+  end
+
+  def size
+    tank.size
+  end
+
   private
 
   def execute_actions_on_tank
