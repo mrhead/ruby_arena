@@ -16,7 +16,6 @@ Project is in very early stage with unstable API.
 
 ## Todos
 
-- [ ] create Gemfile
 - [ ] create renderers for Gui
 - [ ] move all code to the gem
 - [ ] create some default basic robots (Level 0, Level 1, ...)
