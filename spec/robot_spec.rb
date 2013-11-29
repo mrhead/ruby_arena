@@ -43,6 +43,14 @@ describe Robot do
     end
   end
 
+  describe '#accelerate' do
+    it 'notifies command_parser' do
+      expect(command_parser).to receive(:accelerate)
+
+      robot.accelerate
+    end
+  end
+
   def robot
     @_robot ||= Robot.new(
       command_parser: command_parser,

@@ -25,6 +25,14 @@ describe CommandParser do
     end
   end
 
+  describe '#accelerate' do
+    it 'accelerates' do
+      command_parser.accelerate
+
+      expect(command_parser.actions[:accelerate]).to be true
+    end
+  end
+
   def command_parser
     @_command_parser ||= CommandParser.new
   end

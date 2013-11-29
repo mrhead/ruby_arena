@@ -16,4 +16,8 @@ class CommandParser
   def turn_radar(angle)
     @actions[:turn_radar] = angle
   end
+
+  def accelerate
+    @actions[:accelerate] = true
+  end
 end

@@ -38,4 +38,8 @@ class Ai
   def turn_radar(angle)
     robot.turn_radar(angle)
   end
+
+  def accelerate
+    robot.accelerate
+  end
 end
