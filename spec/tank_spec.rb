@@ -7,6 +7,12 @@ describe Tank do
 
       expect(tank.speed).to be 1
     end
+
+    it 'increases speed max to MAX_SPEED' do
+      10.times { tank.accelerate }
+
+      expect(tank.speed).to be 8
+    end
   end
 
   describe '#decelerate' do
@@ -14,6 +20,12 @@ describe Tank do
       tank.decelerate
 
       expect(tank.speed).to be(-1)
+    end
+
+    it 'decreases speed max to -MAX_SPEED' do
+      10.times { tank.decelerate }
+
+      expect(tank.speed).to be(-8)
     end
   end
 

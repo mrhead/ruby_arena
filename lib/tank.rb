@@ -2,6 +2,7 @@ require 'gosu'
 
 class Tank
   SIZE = 40
+  MAX_SPEED = 8
 
   attr_reader :x, :y, :speed, :heading, :gun_heading, :radar_heading
 
@@ -23,11 +24,11 @@ class Tank
   end
 
   def accelerate
-    @speed += 1
+    @speed += 1 if speed < MAX_SPEED
   end
 
   def decelerate
-    @speed -= 1
+    @speed -= 1 if speed > -MAX_SPEED
   end
 
   def move
