@@ -1,8 +1,9 @@
 class Ai
-  attr_reader :robot
+  attr_reader :robot, :command_parser
 
   def initialize(args)
     @robot = args.fetch(:robot)
+    @command_parser = args.fetch(:command_parser)
   end
 
   def tick
@@ -28,18 +29,18 @@ class Ai
   end
 
   def turn(angle)
-    robot.turn(angle)
+    command_parser.turn(angle)
   end
 
   def turn_gun(angle)
-    robot.turn_gun(angle)
+    command_parser.turn_gun(angle)
   end
 
   def turn_radar(angle)
-    robot.turn_radar(angle)
+    command_parser.turn_radar(angle)
   end
 
   def accelerate
-    robot.accelerate
+    command_parser.accelerate
   end
 end
