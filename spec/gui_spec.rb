@@ -18,6 +18,6 @@ describe Gui do
   end
 
   def arena
-    @_arena ||= double('arena')
+    @_arena ||= double('arena', width: 800, height: 600)
   end
 end

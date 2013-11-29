@@ -8,7 +8,7 @@ class Gui < Gosu::Window
 
   def initialize(arena)
     @arena = arena
-    super(WIDTH, HEIGHT, false)
+    super(width, height, false)
   end
 
   def update
@@ -16,5 +16,15 @@ class Gui < Gosu::Window
   end
 
   def draw
+  end
+
+  private
+
+  def width
+    arena.width
+  end
+
+  def height
+    arena.height
   end
 end
