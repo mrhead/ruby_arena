@@ -16,6 +16,11 @@ Project is in very early stage with unstable API.
 
 ## Todos
 
-- [ ] create renderers for Gui
-- [ ] move all code to the gem
-- [ ] create some default basic robots (Level 0, Level 1, ...)
+* create renderers for Gui
+  * create renderer for Robot
+  * create renderer for Bullet
+* create some default basic robots (Level 0, Level 1, ...)
+* add possibility for robots to scan arena
+* create bullets
+* add possibility for robots to fire a bullet
+* create gem for Ruby Arena
