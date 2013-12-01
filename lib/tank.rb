@@ -36,19 +36,19 @@ class Tank
     @y += offset_y(heading, speed)
   end
 
-  def turn(degrees)
-    @heading += degrees
-    @gun_heading += degrees
-    @radar_heading += degrees
+  def turn(angle)
+    self.heading = heading + angle
+    self.gun_heading = gun_heading + angle
+    self.radar_heading = radar_heading + angle
   end
 
-  def turn_gun(degrees)
-    @gun_heading += degrees
-    @radar_heading += degrees
+  def turn_gun(angle)
+    self.gun_heading = gun_heading + angle
+    self.radar_heading = radar_heading + angle
   end
 
-  def turn_radar(degrees)
-    @radar_heading += degrees
+  def turn_radar(angle)
+    self.radar_heading = radar_heading + angle
   end
 
   def size
@@ -57,11 +57,27 @@ class Tank
 
   private
 
+  def heading=(angle)
+    @heading = normalize_angle(angle)
+  end
+
+  def gun_heading=(angle)
+    @gun_heading = normalize_angle(angle)
+  end
+
+  def radar_heading=(angle)
+    @radar_heading = normalize_angle(angle)
+  end
+
   def offset_x(heading, speed)
     Gosu.offset_x(heading, speed)
   end
 
   def offset_y(heading, speed)
     Gosu.offset_y(heading, speed)
+  end
+
+  def normalize_angle(angle)
+    angle % 360
   end
 end
