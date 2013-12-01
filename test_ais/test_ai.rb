@@ -1,6 +1,6 @@
 require_relative '../lib/ai'
 
-class DiagonalMove < Ai
+class TestAi < Ai
   def tick
     turn 10 if heading < 100
     accelerate
