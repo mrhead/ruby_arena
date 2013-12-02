@@ -2,7 +2,7 @@ class CommandParser
   attr_reader :actions
 
   def initialize
-    @actions = {}
+    reset_actions
   end
 
   def turn(angle)
@@ -19,5 +19,9 @@ class CommandParser
 
   def accelerate
     @actions[:accelerate] = true
+  end
+
+  def reset_actions
+    @actions = {}
   end
 end

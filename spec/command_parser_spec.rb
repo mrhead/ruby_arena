@@ -33,6 +33,15 @@ describe CommandParser do
     end
   end
 
+  describe '#reset_actions' do
+    it 'reset actions hash' do
+      command_parser.turn(10)
+      command_parser.reset_actions
+
+      expect(command_parser.actions).to eq({})
+    end
+  end
+
   def command_parser
     @_command_parser ||= CommandParser.new
   end

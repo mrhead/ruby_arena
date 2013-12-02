@@ -32,10 +32,19 @@ class Robot
     tank.heading
   end
 
+  def gun_heading
+    tank.gun_heading
+  end
+
+  def radar_heading
+    tank.radar_heading
+  end
+
   private
 
   def execute_actions_on_tank
     tank.execute_actions(command_parser.actions)
+    command_parser.reset_actions
   end
 
   def move_tank
