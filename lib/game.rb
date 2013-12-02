@@ -7,7 +7,6 @@ require_relative 'tank'
 
 class Game
   def run
-    puts Dir.getwd
     gui.show
   end
 
