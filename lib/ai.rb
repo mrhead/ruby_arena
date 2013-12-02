@@ -43,4 +43,8 @@ class Ai
   def accelerate
     command_parser.accelerate
   end
+
+  def decelerate
+    command_parser.decelerate
+  end
 end

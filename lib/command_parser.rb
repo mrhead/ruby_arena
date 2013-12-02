@@ -21,6 +21,10 @@ class CommandParser
     @actions[:accelerate] = true
   end
 
+  def decelerate
+    @actions[:decelerate] = true
+  end
+
   def reset_actions
     @actions = {}
   end

@@ -40,6 +40,10 @@ class Robot
     tank.radar_heading
   end
 
+  def speed
+    tank.speed
+  end
+
   private
 
   def execute_actions_on_tank

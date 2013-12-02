@@ -33,6 +33,14 @@ describe CommandParser do
     end
   end
 
+  describe '#decelerate' do
+    it 'decelerates' do
+      command_parser.decelerate
+
+      expect(command_parser.actions[:decelerate]).to be true
+    end
+  end
+
   describe '#reset_actions' do
     it 'reset actions hash' do
       command_parser.turn(10)
