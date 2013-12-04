@@ -30,7 +30,7 @@ describe Tank do
   end
 
   describe '#move' do
-    it 'changes y coordinate by 1 when speed is 1 and heading is 0' do
+    it 'changes y coordinate by -1 when speed is 1 and heading is 0' do
       tank = Tank.new(y: 0, heading: 0)
 
       tank.accelerate
@@ -39,7 +39,7 @@ describe Tank do
       expect(tank.y).to eq(-1)
     end
 
-    it 'changes y coordinate by -1 when speed is 1 and heading is 180' do
+    it 'changes y coordinate by 1 when speed is 1 and heading is 180' do
       tank = Tank.new(y: 0, heading: 180)
 
       tank.accelerate
