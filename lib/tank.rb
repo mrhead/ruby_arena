@@ -9,7 +9,7 @@ class Tank
   def initialize(args = {})
     @x = args[:x] || 0
     @y = args[:y] || 0
-    @speed = 0
+    @speed = args[:speed] || 0
     @heading = args[:heading] || 0
     @gun_heading = 0
     @radar_heading = 0

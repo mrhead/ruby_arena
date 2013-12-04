@@ -31,36 +31,32 @@ describe Tank do
 
   describe '#move' do
     it 'changes y coordinate by -1 when speed is 1 and heading is 0' do
-      tank = Tank.new(y: 0, heading: 0)
+      tank = Tank.new(y: 0, heading: 0, speed: 1)
 
-      tank.accelerate
       tank.move
 
       expect(tank.y).to eq(-1)
     end
 
     it 'changes y coordinate by 1 when speed is 1 and heading is 180' do
-      tank = Tank.new(y: 0, heading: 180)
+      tank = Tank.new(y: 0, heading: 180, speed: 1)
 
-      tank.accelerate
       tank.move
 
       expect(tank.y).to eq(1)
     end
 
     it 'changes x coordinate by 1 when speed is 1 and heading is 90' do
-      tank = Tank.new(x: 0, heading: 90)
+      tank = Tank.new(x: 0, heading: 90, speed: 1)
 
-      tank.accelerate
       tank.move
 
       expect(tank.x).to eq(1)
     end
 
     it 'changes x coordinate by -1 when speed is 1 and heading is 270' do
-      tank = Tank.new(x: 0, heading: 270)
+      tank = Tank.new(x: 0, heading: 270, speed: 1)
 
-      tank.accelerate
       tank.move
 
       expect(tank.x).to eq(-1)
