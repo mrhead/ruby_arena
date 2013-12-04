@@ -1,6 +1,9 @@
 require 'gosu'
+require_relative 'movable'
 
 class Tank
+  include Movable
+
   SIZE = 40
   MAX_SPEED = 8
 
@@ -29,11 +32,6 @@ class Tank
 
   def decelerate
     @speed -= 1 if speed > -MAX_SPEED
-  end
-
-  def move
-    @x += offset_x(heading, speed)
-    @y += offset_y(heading, speed)
   end
 
   def turn(angle)
@@ -67,14 +65,6 @@ class Tank
 
   def radar_heading=(angle)
     @radar_heading = normalize_angle(angle)
-  end
-
-  def offset_x(heading, speed)
-    Gosu.offset_x(heading, speed)
-  end
-
-  def offset_y(heading, speed)
-    Gosu.offset_y(heading, speed)
   end
 
   def normalize_angle(angle)
