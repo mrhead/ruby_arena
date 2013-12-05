@@ -47,4 +47,8 @@ class Ai
   def decelerate
     command_parser.decelerate
   end
+
+  def fire
+    command_parser.fire
+  end
 end

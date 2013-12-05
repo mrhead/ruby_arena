@@ -41,6 +41,14 @@ describe CommandParser do
     end
   end
 
+  describe '#fize' do
+    it 'fires a bullet' do
+      command_parser.fire
+
+      expect(command_parser.actions[:fire]).to be true
+    end
+  end
+
   describe '#reset_actions' do
     it 'reset actions hash' do
       command_parser.turn(10)
