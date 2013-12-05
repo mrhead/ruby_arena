@@ -41,7 +41,7 @@ describe CommandParser do
     end
   end
 
-  describe '#fize' do
+  describe '#fire' do
     it 'fires a bullet' do
       command_parser.fire
 
