@@ -1,3 +1,5 @@
+require 'gosu'
+
 module Movable
   def move
     @x += offset_x(heading, speed)
