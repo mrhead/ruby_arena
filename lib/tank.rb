@@ -1,4 +1,3 @@
-require 'gosu'
 require_relative 'movable'
 
 class Tank
