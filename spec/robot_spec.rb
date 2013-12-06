@@ -11,10 +11,10 @@ describe Robot do
 
   describe '#update' do
     it 'calls #execute_actions and #move on tank' do
-      expect(command_parser).to receive(:actions)
-      expect(command_parser).to receive(:reset_actions)
-      expect(tank).to receive(:execute_actions)
-      expect(tank).to receive(:move)
+      expect(robot.command_parser).to receive(:actions)
+      expect(robot.command_parser).to receive(:reset_actions)
+      expect(robot.tank).to receive(:execute_actions)
+      expect(robot.tank).to receive(:move)
 
       robot.update
     end
@@ -22,18 +22,8 @@ describe Robot do
 
   def robot
     @_robot ||= Robot.new(
-      command_parser: command_parser,
       ai: RSpec::Mocks::Mock,
-      tank: tank,
       arena: nil
     )
-  end
-
-  def command_parser
-    @_command_parser ||= double('command_parser')
-  end
-
-  def tank
-    @_tank ||= double('tank')
   end
 end

@@ -2,9 +2,9 @@ class Robot
   attr_reader :ai, :tank, :command_parser
 
   def initialize(args)
-    @command_parser = args.fetch(:command_parser)
+    @command_parser = CommandParser.new
     @ai = args.fetch(:ai).new(robot: self, command_parser: command_parser)
-    @tank = args.fetch(:tank)
+    @tank = Tank.new
     @arena = args.fetch(:arena)
   end
 
