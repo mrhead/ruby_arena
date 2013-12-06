@@ -35,6 +35,7 @@ class Game
 
       Robot.new({
         ai: ai_class,
+        arena: arena,
         command_parser: CommandParser.new,
         tank: Tank.new
       })

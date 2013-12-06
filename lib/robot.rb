@@ -5,6 +5,7 @@ class Robot
     @command_parser = args.fetch(:command_parser)
     @ai = args.fetch(:ai).new(robot: self, command_parser: command_parser)
     @tank = args.fetch(:tank)
+    @arena = args.fetch(:arena)
   end
 
   def tick

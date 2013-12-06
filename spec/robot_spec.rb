@@ -24,7 +24,8 @@ describe Robot do
     @_robot ||= Robot.new(
       command_parser: command_parser,
       ai: RSpec::Mocks::Mock,
-      tank: tank
+      tank: tank,
+      arena: nil
     )
   end
 
