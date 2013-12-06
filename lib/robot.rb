@@ -1,3 +1,6 @@
+require_relative 'command_parser'
+require_relative 'tank'
+
 class Robot
   attr_reader :ai, :tank, :command_parser
 
