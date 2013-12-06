@@ -1,6 +1,4 @@
 shared_examples 'movable' do
-  let(:object) { klass.new(x: 0, y:0, heading: 0, speed: 1) }
-
   describe 'public interface' do
     it_responds_to(:x)
     it_responds_to(:y)
@@ -10,7 +8,7 @@ shared_examples 'movable' do
 
   describe '#move' do
     it 'changes y coordinate by -1 when speed is 1 and heading is 0' do
-      object = klass.new(x: 0, y: 0, heading: 0, speed: 1)
+      object = object(x: 0, y: 0, heading: 0, speed: 1)
 
       object.move
 
@@ -18,7 +16,7 @@ shared_examples 'movable' do
     end
 
     it 'changes y coordinate by 1 when speed is 1 and heading is 180' do
-      object = klass.new(x: 0, y: 0, heading: 180, speed: 1)
+      object = object(x: 0, y: 0, heading: 180, speed: 1)
 
       object.move
 
@@ -26,7 +24,7 @@ shared_examples 'movable' do
     end
 
     it 'changes x coordinate by 1 when speed is 1 and heading is 90' do
-      object = klass.new(x: 0, y: 0, heading: 90, speed: 1)
+      object = object(x: 0, y: 0, heading: 90, speed: 1)
 
       object.move
 
@@ -34,7 +32,7 @@ shared_examples 'movable' do
     end
 
     it 'changes x coordinate by -1 when speed is 1 and heading is 270' do
-      object = klass.new(x: 0, y: 0, heading: 270, speed: 1)
+      object = object(x: 0, y: 0, heading: 270, speed: 1)
 
       object.move
 
