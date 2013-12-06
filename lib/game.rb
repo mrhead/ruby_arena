@@ -6,6 +6,13 @@ require_relative 'robot'
 require_relative 'tank'
 
 class Game
+  attr_reader :arena
+
+  def initialize
+    @arena = Arena.new
+    add_robots_to_arena
+  end
+
   def run
     gui.show
   end
@@ -16,8 +23,10 @@ class Game
     Gui.new(arena)
   end
 
-  def arena
-    Arena.new(robots: robots)
+  def add_robots_to_arena
+    robots.each do |robot|
+      arena.add_robot(robot)
+    end
   end
 
   def robots

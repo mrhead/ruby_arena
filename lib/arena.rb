@@ -4,8 +4,12 @@ class Arena
 
   attr_reader :robots
 
-  def initialize(args)
-    @robots = args.fetch(:robots)
+  def initialize
+    @robots = []
+  end
+
+  def add_robot(robot)
+    @robots << robot
   end
 
   def update
