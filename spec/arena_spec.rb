@@ -9,6 +9,14 @@ describe Arena do
     end
   end
 
+  describe '#add_bullet' do
+    it 'adds new robot' do
+      arena.add_bullet(:bullet)
+
+      expect(arena.bullets).to eq [:bullet]
+    end
+  end
+
   describe '#update' do
     it 'calls #tick on all robots and then #update on all robots' do
       arena.add_robot(robot)

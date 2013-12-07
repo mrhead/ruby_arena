@@ -107,6 +107,14 @@ describe Robot do
     end
   end
 
+  describe '#fire' do
+    it 'adds new bullet to arena' do
+      expect(arena).to receive(:add_bullet)
+
+      robot.fire
+    end
+  end
+
   describe '#execute_actions' do
     it 'turns robot if turn action is set' do
       expect(robot).to receive(:turn).with(10)
@@ -137,6 +145,12 @@ describe Robot do
 
       robot.execute_actions({ decelerate: true })
     end
+
+    it 'fires if fire action is set' do
+      expect(robot).to receive(:fire)
+
+      robot.execute_actions({ fire: true })
+    end
   end
 
   def object(args = {})
@@ -146,9 +160,13 @@ describe Robot do
   def robot(args = {})
     defaults = {
       ai: RSpec::Mocks::Mock,
-      arena: nil
+      arena: arena
     }
 
     @_robot ||= Robot.new(defaults.merge(args))
+  end
+
+  def arena
+    @_arena ||= double('arena')
   end
 end

@@ -33,6 +33,7 @@ class Robot
   end
 
   def execute_actions(actions)
+    fire if actions[:fire]
     turn(actions[:turn]) if actions[:turn]
     turn_gun(actions[:turn_gun]) if actions[:turn_gun]
     turn_radar(actions[:turn_radar]) if actions[:turn_radar]
@@ -69,6 +70,10 @@ class Robot
 
   def turn_radar(angle)
     self.radar_heading = radar_heading + angle
+  end
+
+  def fire
+    arena.add_bullet(Bullet.new(x: x, y: y, heading: gun_heading))
   end
 
   def size
