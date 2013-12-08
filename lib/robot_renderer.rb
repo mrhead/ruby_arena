@@ -93,10 +93,10 @@ class RobotRenderer
   end
 
   def radar_view_angle
-    20
+    robot.radar_view_angle
   end
 
   def radar_range
-    400
+    robot.radar_range
   end
 end

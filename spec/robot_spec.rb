@@ -176,6 +176,17 @@ describe Robot do
     end
   end
 
+  describe '#scan' do
+    it 'returns distance from all robots in radar view and range' do
+      robot_in_radar_view = double('robot_in_radar_view', x: 200, y: 100)
+      robot_not_in_radar_view = double('robot_not_in_radar_view', x: 0, y: 0)
+      arena = double('arena', robots: [robot_in_radar_view, robot_not_in_radar_view])
+      robot = robot(x: 100, y: 100, heading: 90, arena: arena)
+
+      expect(robot.scan).to eq [100]
+    end
+  end
+
   def object(args = {})
     robot(args)
   end

@@ -6,6 +6,8 @@ class Robot
 
   SIZE = 40
   MAX_SPEED = 8
+  RADAR_RANGE = 1000
+  RADAR_VIEW_ANGLE = 20
 
   attr_reader :ai, :tank, :command_parser, :arena
   attr_reader :x, :y, :speed, :heading, :gun_heading, :radar_heading, :robot
@@ -19,13 +21,14 @@ class Robot
     @y = args[:y] || 0
     @speed = args[:speed] || 0
     @heading = args[:heading] || 0
-    @gun_heading = 0
-    @radar_heading = 0
+    @gun_heading = @heading
+    @radar_heading = @heading
     @energy = args[:energy] || 100
+    @scanned_robots = []
   end
 
   def tick
-    ai.tick
+    ai.tick(tick_events)
   end
 
   def update
@@ -89,8 +92,24 @@ class Robot
     energy < 0
   end
 
+  def scan
+    other_robots.map do |robot|
+      if robot_in_radar_view?(robot)
+        Gosu.distance(x, y, robot.x, robot.y)
+      end
+    end.compact
+  end
+
   def size
     SIZE
+  end
+
+  def radar_range
+    RADAR_RANGE
+  end
+
+  def radar_view_angle
+    RADAR_VIEW_ANGLE
   end
 
   private
@@ -111,7 +130,27 @@ class Robot
     angle % 360
   end
 
+  def tick_events
+    { scanned_robots: scan }
+  end
+
   def new_bullet
     Bullet.new(x: x, y: y, heading: gun_heading, arena: arena, origin: self)
+  end
+
+  def robot_in_radar_view?(robot)
+    angle_diff(radar_heading, enemy_angle(robot)).abs <= radar_view_angle/2
+  end
+
+  def enemy_angle(robot)
+    Gosu.angle(x, y, robot.x, robot.y)
+  end
+
+  def angle_diff(angle1, angle2)
+    Gosu.angle_diff(angle1, angle2)
+  end
+
+  def other_robots
+    arena.robots.find_all { |robot| robot != self }
   end
 end

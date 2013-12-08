@@ -42,7 +42,15 @@ describe Gui do
   end
 
   def robot
-    @_robot ||= double('robot', heading: 0, x: 0, y: 0, size: 10, radar_heading: 0)
+    @_robot ||= double('robot',
+                       heading: 0,
+                       x: 0,
+                       y: 0,
+                       size: 10,
+                       radar_heading: 0,
+                       radar_view_angle: 10,
+                       radar_range: 100
+                      )
   end
 
   def bullet
