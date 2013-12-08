@@ -26,13 +26,22 @@ describe Arena do
 
       arena.update
     end
+
+    it 'removes robot if it is dead' do
+      robot = robot(dead?: true)
+
+      arena.add_robot(robot)
+      arena.update
+
+      expect(arena.robots).to eq []
+    end
   end
 
   def arena
     @_arena ||= Arena.new
   end
 
-  def robot
-    @_robot ||= double('robot')
+  def robot(args = {})
+    @_robot ||= double('robot', tick: nil, dead?: args[:dead?], update: nil)
   end
 end

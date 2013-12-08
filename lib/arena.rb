@@ -21,6 +21,7 @@ class Arena
     send_tick_to_all_robots
     send_update_to_all_robots
     send_update_to_all_bullets
+    remove_dead_robots
   end
 
   def width
@@ -43,5 +44,9 @@ class Arena
 
   def send_update_to_all_bullets
     bullets.each(&:update)
+  end
+
+  def remove_dead_robots
+    robots.delete_if { |robot| robot.dead? }
   end
 end
