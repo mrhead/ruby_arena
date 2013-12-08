@@ -10,7 +10,7 @@ class Gui < Gosu::Window
 
   def initialize(arena)
     @arena = arena
-    create_robot_renderers
+    @_robot_renderers = {}
     @_bullet_renderers = {}
     super(width, height, false)
   end
@@ -35,7 +35,9 @@ class Gui < Gosu::Window
   end
 
   def draw_robots
-    robot_renderers.each(&:draw)
+    robots.each do |robot|
+      robot_renderer(robot).draw
+    end
   end
 
   def draw_bullets
@@ -44,12 +46,16 @@ class Gui < Gosu::Window
     end
   end
 
-  def create_robot_renderers
-    @robot_renderers = arena.robots.map { |robot| RobotRenderer.new({ robot: robot, window: self }) }
+  def robot_renderer(robot)
+    @_robot_renderers[robot] ||= RobotRenderer.new(window: self, robot: robot)
   end
 
   def bullet_renderer(bullet)
     @_bullet_renderers[bullet] ||= BulletRenderer.new(window: self, bullet: bullet)
+  end
+
+  def robots
+    arena.robots
   end
 
   def bullets
