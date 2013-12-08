@@ -73,7 +73,9 @@ class Robot
   end
 
   def fire
-    arena.add_bullet(Bullet.new(x: x, y: y, heading: gun_heading))
+    bullet = new_bullet
+    arena.add_bullet(bullet)
+    3.times { bullet.update }
   end
 
   def size
@@ -96,5 +98,9 @@ class Robot
 
   def normalize_angle(angle)
     angle % 360
+  end
+
+  def new_bullet
+    Bullet.new(x: x, y: y, heading: gun_heading)
   end
 end
