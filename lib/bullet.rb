@@ -3,7 +3,7 @@ require_relative 'movable'
 class Bullet
   include Movable
 
-  DEFAULT_SPEED = 3
+  DEFAULT_SPEED = 10
 
   attr_reader :x, :y, :heading, :speed
 
