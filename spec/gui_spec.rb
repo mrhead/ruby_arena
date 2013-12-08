@@ -22,6 +22,15 @@ describe Gui do
 
       gui.draw
     end
+
+    it 'notifies each bullet renderer' do
+      bullet_renderer = double('bullet_renderer')
+      BulletRenderer.stub(:new) { bullet_renderer }
+
+      expect(bullet_renderer).to receive(:draw)
+
+      gui.draw
+    end
   end
 
   def gui
@@ -29,10 +38,14 @@ describe Gui do
   end
 
   def arena
-    @_arena ||= double('arena', width: 800, height: 600, robots: [robot])
+    @_arena ||= double('arena', width: 800, height: 600, robots: [robot], bullets: [bullet])
   end
 
   def robot
-    @_robot ||= double('robot')
+    @_robot ||= double('robot', heading: 0, x: 0, y: 0, size: 10, radar_heading: 0)
+  end
+
+  def bullet
+    @_bullet ||= double('bullet', heading: 0, x: 0, y: 0, size: 2)
   end
 end

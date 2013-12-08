@@ -20,6 +20,7 @@ class Arena
   def update
     send_tick_to_all_robots
     send_update_to_all_robots
+    bullets.each(&:update)
   end
 
   def width

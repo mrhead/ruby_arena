@@ -13,4 +13,8 @@ class Bullet
     @heading = args.fetch(:heading)
     @speed = args.fetch(:speed, DEFAULT_SPEED)
   end
+
+  def update
+    move
+  end
 end
