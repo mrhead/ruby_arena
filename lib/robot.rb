@@ -85,6 +85,10 @@ class Robot
     puts energy
   end
 
+  def dead?
+    energy < 0
+  end
+
   def size
     SIZE
   end

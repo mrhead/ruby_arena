@@ -164,6 +164,18 @@ describe Robot do
     end
   end
 
+  describe '#dead?' do
+    it 'returns false if energy is more than 0' do
+      expect(robot.dead?).to be false
+    end
+
+    it 'returns true if energy is less than 0' do
+      robot = robot(energy: -1)
+
+      expect(robot.dead?).to be true
+    end
+  end
+
   def object(args = {})
     robot(args)
   end
