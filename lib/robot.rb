@@ -17,8 +17,8 @@ class Robot
     @command_parser = CommandParser.new
     @ai = args.fetch(:ai).new(robot: self, command_parser: command_parser)
     @arena = args.fetch(:arena)
-    @x = args[:x] || 0
-    @y = args[:y] || 0
+    @x = args[:x] || rand(arena.width - 2*size)
+    @y = args[:y] || rand(arena.height - 2*size)
     @speed = args[:speed] || 0
     @heading = args[:heading] || 0
     @gun_heading = @heading

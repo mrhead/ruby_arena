@@ -201,6 +201,6 @@ describe Robot do
   end
 
   def arena
-    @_arena ||= double('arena', robots: [])
+    @_arena ||= double('arena', robots: [], width: 100, height: 100)
   end
 end
