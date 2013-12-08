@@ -16,6 +16,7 @@ class Bullet
     @speed = args.fetch(:speed, DEFAULT_SPEED)
     @arena = args.fetch(:arena)
     @origin = args.fetch(:origin)
+    @dead = false
   end
 
   def update
@@ -35,12 +36,17 @@ class Bullet
     DEFAULT_ENERGY
   end
 
+  def dead?
+    @dead
+  end
+
   private
 
   def check_if_hit_some_robot
     arena.robots.each do |robot|
       if robot != origin && intersect?(robot)
         robot.hit(self)
+        @dead = true
       end
     end
   end

@@ -22,6 +22,7 @@ class Arena
     send_update_to_all_robots
     send_update_to_all_bullets
     remove_dead_robots
+    remove_dead_bullets
   end
 
   def width
@@ -48,5 +49,9 @@ class Arena
 
   def remove_dead_robots
     robots.delete_if { |robot| robot.dead? }
+  end
+
+  def remove_dead_bullets
+    bullets.delete_if { |bullet| bullet.dead? }
   end
 end

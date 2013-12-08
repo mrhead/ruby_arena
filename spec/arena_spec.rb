@@ -35,6 +35,15 @@ describe Arena do
 
       expect(arena.robots).to eq []
     end
+
+    it 'removes bullet if it is dead' do
+      bullet = robot(dead?: true)
+
+      arena.add_bullet(bullet)
+      arena.update
+
+      expect(arena.bullets).to eq []
+    end
   end
 
   def arena
