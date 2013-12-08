@@ -1,6 +1,4 @@
 class BulletRenderer
-  SIZE = 4
-
   attr_reader :bullet, :window
 
   def initialize(args)
@@ -48,6 +46,6 @@ class BulletRenderer
   end
 
   def size
-    SIZE
+    bullet.size
   end
 end

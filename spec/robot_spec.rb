@@ -153,6 +153,17 @@ describe Robot do
     end
   end
 
+  describe '#hit' do
+    it 'decreases energy by bullet energy' do
+      robot = robot(energy: 100)
+      bullet = double('bullet', energy: 10)
+
+      robot.hit(bullet)
+
+      expect(robot.energy).to be 90
+    end
+  end
+
   def object(args = {})
     robot(args)
   end
@@ -167,6 +178,6 @@ describe Robot do
   end
 
   def arena
-    @_arena ||= double('arena')
+    @_arena ||= double('arena', robots: [])
   end
 end

@@ -9,6 +9,7 @@ class Robot
 
   attr_reader :ai, :tank, :command_parser, :arena
   attr_reader :x, :y, :speed, :heading, :gun_heading, :radar_heading, :robot
+  attr_reader :energy
 
   def initialize(args)
     @command_parser = CommandParser.new
@@ -20,6 +21,7 @@ class Robot
     @heading = args[:heading] || 0
     @gun_heading = 0
     @radar_heading = 0
+    @energy = args[:energy] || 100
   end
 
   def tick
@@ -78,6 +80,11 @@ class Robot
     3.times { bullet.update }
   end
 
+  def hit(bullet)
+    @energy -= bullet.energy
+    puts energy
+  end
+
   def size
     SIZE
   end
@@ -101,6 +108,6 @@ class Robot
   end
 
   def new_bullet
-    Bullet.new(x: x, y: y, heading: gun_heading)
+    Bullet.new(x: x, y: y, heading: gun_heading, arena: arena, origin: self)
   end
 end
