@@ -12,6 +12,25 @@ describe Robot do
 
       robot.tick
     end
+
+    it 'decreases gun heat by 0.1 if it is more than 0' do
+      robot = robot(gun_heat: 1)
+      expect(robot.ai).to receive(:tick)
+
+      robot.tick
+
+      expect(robot.gun_heat).to be 0.9
+    end
+
+    it "doesn't decrease gun heat below 0" do
+      robot = robot(gun_heat: 0)
+      expect(robot.ai).to receive(:tick)
+
+      robot.tick
+
+      expect(robot.gun_heat).to be 0
+    end
+
   end
 
   describe '#update' do
@@ -113,6 +132,20 @@ describe Robot do
 
       robot.fire
     end
+
+    it 'increases gun heat' do
+      robot.fire
+
+      expect(robot.gun_heat).to be 3
+    end
+
+    it "doesn't fire if gun heat is more than 0" do
+      robot = robot(gun_heat: 3)
+
+      expect(arena).not_to receive(:add_bullet)
+
+      robot.fire
+    end
   end
 
   describe '#execute_actions' do
@@ -201,6 +234,6 @@ describe Robot do
   end
 
   def arena
-    @_arena ||= double('arena', robots: [], width: 100, height: 100)
+    @_arena ||= double('arena', robots: [], width: 100, height: 100, add_bullet: nil)
   end
 end

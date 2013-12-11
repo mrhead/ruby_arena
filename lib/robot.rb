@@ -7,11 +7,11 @@ class Robot
   SIZE = 40
   MAX_SPEED = 8
   RADAR_RANGE = 1000
-  RADAR_VIEW_ANGLE = 20
+  RADAR_VIEW_ANGLE = 10
 
   attr_reader :ai, :tank, :command_parser, :arena
   attr_reader :x, :y, :speed, :heading, :gun_heading, :radar_heading, :robot
-  attr_reader :energy
+  attr_reader :energy, :gun_heat
 
   def initialize(args)
     @command_parser = CommandParser.new
@@ -25,10 +25,15 @@ class Robot
     @radar_heading = @heading
     @energy = args[:energy] || 100
     @scanned_robots = []
+    @gun_heat = args[:gun_heat] || 0
   end
 
   def tick
     ai.tick(tick_events)
+    @gun_heat -= 0.1
+    if gun_heat < 0
+      @gun_heat = 0
+    end
   end
 
   def update
@@ -78,9 +83,12 @@ class Robot
   end
 
   def fire
-    bullet = new_bullet
-    arena.add_bullet(bullet)
-    3.times { bullet.update }
+    unless gun_heat > 0
+      bullet = new_bullet
+      arena.add_bullet(bullet)
+      3.times { bullet.update }
+      @gun_heat += 3
+    end
   end
 
   def hit(bullet)
