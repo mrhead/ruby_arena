@@ -1,4 +1,6 @@
 # ruby_arena
+[![Code
+Climate](https://codeclimate.com/github/mrhead/ruby_arena.png)](https://codeclimate.com/github/mrhead/ruby_arena)
 
 Ruby Arena is a game for programmers and people who wants to learn how to program in Ruby.
 
