@@ -30,10 +30,7 @@ class Robot
 
   def tick
     ai.tick(tick_events)
-    @gun_heat -= 0.1
-    if gun_heat < 0
-      @gun_heat = 0
-    end
+    @gun_heat -= 0.1 if @gun_heat > 0
   end
 
   def update
