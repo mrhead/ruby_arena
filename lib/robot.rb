@@ -40,6 +40,7 @@ class Robot
     execute_actions(actions)
     reset_actions
     move
+    fix_position
   end
 
   def execute_actions(actions)
@@ -160,5 +161,28 @@ class Robot
 
   def other_robots
     arena.robots.find_all { |robot| robot != self }
+  end
+
+  def fix_position
+    @x = min_x if x < min_x
+    @x = max_x if x > max_x
+    @y = min_y if y < min_y
+    @y = max_y if y > max_y
+  end
+
+  def min_x
+    size/2
+  end
+
+  def max_x
+    arena.width - min_x
+  end
+
+  def min_y
+    size/2
+  end
+
+  def max_y
+    arena.height - min_y
   end
 end
