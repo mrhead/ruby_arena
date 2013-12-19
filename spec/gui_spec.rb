@@ -44,10 +44,11 @@ describe Gui do
   def robot
     @_robot ||= double('robot',
                        heading: 0,
+                       radar_heading: 0,
+                       gun_heading: 0,
                        x: 0,
                        y: 0,
                        size: 10,
-                       radar_heading: 0,
                        radar_view_angle: 10,
                        radar_range: 100
                       )
