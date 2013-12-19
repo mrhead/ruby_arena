@@ -10,8 +10,8 @@ class RobotRenderer
 
   def draw
     draw_tank_body
-    draw_radar
     draw_gun
+    draw_radar
   end
 
   private
@@ -71,6 +71,14 @@ class RobotRenderer
       radar_x1, radar_y1, color,
       radar_x2, radar_y2, color
     )
+
+    window.rotate(radar_heading, x, y) do
+      window.draw_triangle(
+        radar_base_x1, y, color,
+        radar_base_x2, y, color,
+        x, radar_base_y3, color
+      )
+    end
   end
 
   def radar_x1
@@ -87,6 +95,18 @@ class RobotRenderer
 
   def radar_y2
     y + Gosu.offset_y(radar_heading + radar_view_angle / 2, radar_range)
+  end
+
+  def radar_base_x1
+    x + 4
+  end
+
+  def radar_base_x2
+    x - 4
+  end
+
+  def radar_base_y3
+    y + 6
   end
 
   def radar_heading
