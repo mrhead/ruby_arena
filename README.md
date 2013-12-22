@@ -34,6 +34,10 @@ You can see example robot here: https://gist.github.com/mrhead/7917528. Just put
 If you have your own robot (well AI), then please publish it as gist and then add it here:
 
 * https://gist.github.com/mrhead/7917528
+* https://gist.github.com/mrhead/8086991
+* https://gist.github.com/mrhead/8087011
+
+Please note that mentioned Ais are not were nice (code) and pretty stupid right now, but at least you can try to run them.
 
 ### How to create your own robot (AI)
 
