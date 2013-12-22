@@ -94,7 +94,6 @@ class Robot
 
   def hit(bullet)
     @energy -= bullet.energy
-    puts energy
   end
 
   def dead?
