@@ -116,6 +116,10 @@ class Robot
     RADAR_RANGE
   end
 
+  def time
+    arena.time
+  end
+
   private
 
   def heading=(angle)

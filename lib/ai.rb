@@ -28,6 +28,10 @@ class Ai
     @robot.heading
   end
 
+  def time
+    robot.time
+  end
+
   def turn(angle)
     command_parser.turn(angle)
   end

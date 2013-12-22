@@ -44,6 +44,12 @@ describe Arena do
 
       expect(arena.bullets).to eq []
     end
+
+    it 'increases time by 1' do
+      arena.update
+
+      expect(arena.time).to be 1
+    end
   end
 
   def arena
