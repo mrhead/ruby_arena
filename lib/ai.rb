@@ -32,6 +32,10 @@ class Ai
     robot.time
   end
 
+  def radar_view_angle
+    robot.radar_view_angle
+  end
+
   def turn(angle)
     command_parser.turn(angle)
   end
@@ -56,7 +60,7 @@ class Ai
     command_parser.fire
   end
 
-  def radar_view_angle(angle)
+  def set_radar_view_angle(angle)
     command_parser.radar_view_angle(angle)
   end
 end

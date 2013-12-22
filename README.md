@@ -69,6 +69,9 @@ turn_radar(angle)
 
 # fire a bullet
 fire
+
+# change radar view angle
+set_radar_view_angle(angle)
 ```
 
 You can do each action just once in each tick, so:
