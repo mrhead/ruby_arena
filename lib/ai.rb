@@ -51,4 +51,8 @@ class Ai
   def fire
     command_parser.fire
   end
+
+  def radar_view_angle(angle)
+    command_parser.radar_view_angle(angle)
+  end
 end

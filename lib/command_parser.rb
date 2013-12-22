@@ -29,6 +29,10 @@ class CommandParser
     @actions[:fire] = true
   end
 
+  def radar_view_angle(angle)
+    @actions[:radar_view_angle] = angle
+  end
+
   def reset_actions
     @actions = {}
   end

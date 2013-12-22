@@ -49,6 +49,14 @@ describe CommandParser do
     end
   end
 
+  describe '#change_radar_view' do
+    it 'sets radar view angle' do
+      command_parser.radar_view_angle(10)
+
+      expect(command_parser.actions[:radar_view_angle]).to be 10
+    end
+  end
+
   describe '#reset_actions' do
     it 'reset actions hash' do
       command_parser.turn(10)

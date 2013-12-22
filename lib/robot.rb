@@ -7,11 +7,12 @@ class Robot
   SIZE = 40
   MAX_SPEED = 8
   RADAR_RANGE = 1000
-  RADAR_VIEW_ANGLE = 10
+  DEFAULT_RADAR_VIEW_ANGLE = 10
 
   attr_reader :ai, :tank, :command_parser, :arena
   attr_reader :x, :y, :speed, :heading, :gun_heading, :radar_heading, :robot
   attr_reader :energy, :gun_heat
+  attr_accessor :radar_view_angle
 
   def initialize(args)
     @command_parser = CommandParser.new
@@ -26,6 +27,7 @@ class Robot
     @energy = args[:energy] || 100
     @scanned_robots = []
     @gun_heat = args[:gun_heat] || 0
+    @radar_view_angle = args[:radar_view_angle] || DEFAULT_RADAR_VIEW_ANGLE
   end
 
   def tick
@@ -47,6 +49,7 @@ class Robot
     turn_radar(actions[:turn_radar]) if actions[:turn_radar]
     accelerate if actions[:accelerate]
     decelerate if actions[:decelerate]
+    self.radar_view_angle = actions[:radar_view_angle] if actions[:radar_view_angle]
   end
 
   def actions
@@ -112,10 +115,6 @@ class Robot
 
   def radar_range
     RADAR_RANGE
-  end
-
-  def radar_view_angle
-    RADAR_VIEW_ANGLE
   end
 
   private

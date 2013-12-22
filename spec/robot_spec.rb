@@ -184,6 +184,14 @@ describe Robot do
 
       robot.execute_actions({ fire: true })
     end
+
+    it 'changes radar view angle if radar view angle action is set' do
+      robot = robot(radar_view_angle: 10)
+
+      robot.execute_actions({ radar_view_angle: 5 })
+
+      expect(robot.radar_view_angle).to be 5
+    end
   end
 
   describe '#hit' do
