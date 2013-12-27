@@ -1,3 +1,5 @@
+# temporary moved out of the test suite
+# https://github.com/mrhead/ruby_arena/issues/29
 require 'gui'
 
 describe Gui do
