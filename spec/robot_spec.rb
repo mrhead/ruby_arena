@@ -19,7 +19,7 @@ describe Robot do
 
       robot.tick
 
-      expect(robot.gun_heat).to be 0.9
+      expect(robot.gun_heat).to eq(0.9)
     end
 
     it "doesn't decrease gun heat below 0" do
