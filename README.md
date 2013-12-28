@@ -23,6 +23,12 @@ bundle # or gem install gosu
 ./bin/ruby_arena.rb path_to/robot.rb path_to/another_robot.rb
 ```
 
+You can run game with some predefined robots (levels).
+
+```
+./bin/ruby_arena.rb -l 0 path_to/your_ai.rb
+```
+
 You can see example robot here: https://gist.github.com/mrhead/7917528. Just put it to some dir in ruby_arena.
 
 ```
