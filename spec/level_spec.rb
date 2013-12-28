@@ -1,8 +1,8 @@
 require 'level'
 
 describe Level do
-  before(:all) do
-    IO.any_instance.stub(:puts)
+  before do
+    allow_any_instance_of(IO).to receive(:puts).and_return nil
   end
 
   describe '#initialize' do
