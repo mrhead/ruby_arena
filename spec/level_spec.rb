@@ -1,6 +1,10 @@
 require 'level'
 
 describe Level do
+  before(:all) do
+    IO.any_instance.stub(:puts)
+  end
+
   describe '#initialize' do
     it 'exits when level is not defined' do
       expect { Level.new(:undefined_level) }.to raise_error SystemExit
