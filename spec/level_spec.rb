@@ -3,7 +3,7 @@ require 'level'
 describe Level do
   describe '#initialize' do
     it 'exits when level is not defined' do
-      expect { Level.new(1000) }.to raise_error SystemExit
+      expect { Level.new(:undefined_level) }.to raise_error SystemExit
     end
   end
 
