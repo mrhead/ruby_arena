@@ -3,4 +3,5 @@ rvm:
 before_install:
  - sudo apt-get update -qq
  - sudo apt-get install -qq build-essential freeglut3-dev libfreeimage-dev libgl1-mesa-dev libopenal-dev libpango1.0-dev libsdl-ttf2.0-dev libsndfile-dev libxinerama-dev
-script: rspec spec
+script:
+ - bundle exec rspec spec/
