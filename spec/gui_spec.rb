@@ -1,4 +1,5 @@
-require 'gosu' # so it'll not be required again on gui.rb
+require 'gosu'
+require 'gui'
 
 class FakeGosuWindow
   def stub(*args)
@@ -11,10 +12,22 @@ class FakeGosuWindow
   alias rotate        stub
 end
 
+GosuWindowBackup = Gosu::Window
 Gosu.send(:remove_const, :Window)
 Gosu::Window = FakeGosuWindow
 
-require 'gui'
+GuiBackup = Gui
+self.class.send(:remove_const, :Gui)
+
+load 'gui.rb' # reload gui.rb after stubbing
+
+FakeGui = Gui # catch the stubbed gui
+
+self.class.send(:remove_const, :Gui)
+Gui = GuiBackup # restore things
+Gosu.send(:remove_const, :Window)
+Gosu::Window = GosuWindowBackup
+
 require 'arena'
 require 'ai'
 require 'robot'
@@ -22,7 +35,7 @@ require 'robot'
 describe Gui do
   before(:all) do
     @arena  = Arena.new
-    @gui    = Gui.new(@arena)
+    @gui    = FakeGui.new(@arena)
     @ai     = Ai.new(robot: nil, command_parser: nil)
     @robot  = Robot.new(heading: 0,
                        radar_heading: 0,
