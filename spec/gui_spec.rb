@@ -2,11 +2,27 @@
 # https://github.com/mrhead/ruby_arena/issues/29
 require 'gui'
 require 'arena'
+require 'ai'
+require 'robot'
 
 describe Gui do
   before(:all) do
     @arena = Arena.new
     @gui    = Gui.new(@arena)
+    @ai     = Ai.new(robot: nil, command_parser: nil)
+    @robot  = Robot.new(heading: 0,
+                       radar_heading: 0,
+                       gun_heading: 0,
+                       x: 0,
+                       y: 0,
+                       size: 10,
+                       radar_view_angle: 10,
+                       radar_range: 100,
+                       ai: Ai,
+                       arena: @arena)
+    @bullet = Bullet.new(heading: 0, x: 0, y: 0, size: 2, origin: @robot, arena: @arena)
+    @arena.add_robot(@robot)
+    @arena.add_bullet(@bullet)
   end
 
   describe 'public interface' do
@@ -39,22 +55,5 @@ describe Gui do
 
       @gui.draw
     end
-  end
-
-  def robot
-    @_robot ||= double('robot',
-                       heading: 0,
-                       radar_heading: 0,
-                       gun_heading: 0,
-                       x: 0,
-                       y: 0,
-                       size: 10,
-                       radar_view_angle: 10,
-                       radar_range: 100
-                      )
-  end
-
-  def bullet
-    @_bullet ||= double('bullet', heading: 0, x: 0, y: 0, size: 2)
   end
 end
