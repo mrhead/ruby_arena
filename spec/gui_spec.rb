@@ -1,3 +1,19 @@
+require 'gosu' # so it'll not be required again on gui.rb
+
+class FakeGosuWindow
+  def stub(*args)
+    true
+  end
+
+  alias initialize    stub
+  alias draw_quad     stub
+  alias draw_triangle stub
+  alias rotate        stub
+end
+
+Gosu.send(:remove_const, :Window)
+Gosu::Window = FakeGosuWindow
+
 require 'gui'
 require 'arena'
 require 'ai'
