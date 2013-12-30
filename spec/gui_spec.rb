@@ -23,6 +23,8 @@ describe Gui do
     @bullet = Bullet.new(heading: 0, x: 0, y: 0, size: 2, origin: @robot, arena: @arena)
     @arena.add_robot(@robot)
     @arena.add_bullet(@bullet)
+    @robot_renderer  = @gui.send(:robot_renderer,  @robot)
+    @bullet_renderer = @gui.send(:bullet_renderer, @bullet)
   end
 
   describe 'public interface' do
@@ -39,19 +41,13 @@ describe Gui do
 
   describe '#draw' do
     it 'notifies each robot renderer' do
-      robot_renderer = double('robot_renderer')
-      allow(RobotRenderer).to receive(:new) { robot_renderer }
-
-      expect(robot_renderer).to receive(:draw)
+      expect(@robot_renderer).to receive(:draw)
 
       @gui.draw
     end
 
     it 'notifies each bullet renderer' do
-      bullet_renderer = double('bullet_renderer')
-      allow(BulletRenderer).to receive(:new) { bullet_renderer }
-
-      expect(bullet_renderer).to receive(:draw)
+      expect(@bullet_renderer).to receive(:draw)
 
       @gui.draw
     end
