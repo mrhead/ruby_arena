@@ -1,5 +1,3 @@
-# temporary moved out of the test suite
-# https://github.com/mrhead/ruby_arena/issues/29
 require 'gui'
 require 'arena'
 require 'ai'
@@ -7,7 +5,7 @@ require 'robot'
 
 describe Gui do
   before(:all) do
-    @arena = Arena.new
+    @arena  = Arena.new
     @gui    = Gui.new(@arena)
     @ai     = Ai.new(robot: nil, command_parser: nil)
     @robot  = Robot.new(heading: 0,
