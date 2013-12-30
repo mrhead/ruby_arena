@@ -6,17 +6,18 @@ require 'arena'
 describe Gui do
   before(:all) do
     @arena = Arena.new
+    @gui    = Gui.new(@arena)
   end
 
   describe 'public interface' do
-    it { expect(gui).to respond_to(:draw) }
+    it { expect(@gui).to respond_to(:draw) }
   end
 
   describe '#update' do
     it 'notifies arena' do
       expect(@arena).to receive(:update)
 
-      gui.update
+      @gui.update
     end
   end
 
@@ -27,7 +28,7 @@ describe Gui do
 
       expect(robot_renderer).to receive(:draw)
 
-      gui.draw
+      @gui.draw
     end
 
     it 'notifies each bullet renderer' do
@@ -36,12 +37,8 @@ describe Gui do
 
       expect(bullet_renderer).to receive(:draw)
 
-      gui.draw
+      @gui.draw
     end
-  end
-
-  def gui
-    @_gui ||= Gui.new(@arena)
   end
 
   def robot
