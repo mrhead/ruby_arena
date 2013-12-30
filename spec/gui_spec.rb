@@ -1,15 +1,20 @@
 # temporary moved out of the test suite
 # https://github.com/mrhead/ruby_arena/issues/29
 require 'gui'
+require 'arena'
 
 describe Gui do
+  before(:all) do
+    @arena = Arena.new
+  end
+
   describe 'public interface' do
     it { expect(gui).to respond_to(:draw) }
   end
 
   describe '#update' do
     it 'notifies arena' do
-      expect(arena).to receive(:update)
+      expect(@arena).to receive(:update)
 
       gui.update
     end
@@ -36,11 +41,7 @@ describe Gui do
   end
 
   def gui
-    @_gui ||= Gui.new(arena)
-  end
-
-  def arena
-    @_arena ||= double('arena', width: 800, height: 600, robots: [robot], bullets: [bullet])
+    @_gui ||= Gui.new(@arena)
   end
 
   def robot
