@@ -4,25 +4,20 @@ require 'ai'
 require 'robot'
 
 describe Gui do
-  before(:all) do
-    @arena  = Arena.new
-    @gui    = FakeGui.new(@arena)
-    @ai     = Ai.new(robot: nil, command_parser: nil)
-    @robot  = Robot.new(heading: 0,
+  before(:each) do
+    @robot  = double('robot',
+                       heading: 0,
                        radar_heading: 0,
                        gun_heading: 0,
                        x: 0,
                        y: 0,
                        size: 10,
                        radar_view_angle: 10,
-                       radar_range: 100,
-                       ai: Ai,
-                       arena: @arena)
-    @bullet = Bullet.new(heading: 0, x: 0, y: 0, size: 2, origin: @robot, arena: @arena)
-    @arena.add_robot(@robot)
-    @arena.add_bullet(@bullet)
-    @robot_renderer  = @gui.send(:robot_renderer,  @robot)
-    @bullet_renderer = @gui.send(:bullet_renderer, @bullet)
+                       radar_range: 100
+                      )
+    @bullet = double('bullet', heading: 0, x: 0, y: 0, size: 2)
+    @arena  = double('arena', width: 800, height: 600, robots: [@robot], bullets: [@bullet])
+    @gui    = FakeGui.new(@arena)
   end
 
   describe 'public interface' do
@@ -39,13 +34,19 @@ describe Gui do
 
   describe '#draw' do
     it 'notifies each robot renderer' do
-      expect(@robot_renderer).to receive(:draw)
+      robot_renderer = double('robot_renderer')
+      allow(RobotRenderer).to receive(:new) { robot_renderer }
+
+      expect(robot_renderer).to receive(:draw)
 
       @gui.draw
     end
 
     it 'notifies each bullet renderer' do
-      expect(@bullet_renderer).to receive(:draw)
+      bullet_renderer = double('bullet_renderer')
+      allow(BulletRenderer).to receive(:new) { bullet_renderer }
+
+      expect(bullet_renderer).to receive(:draw)
 
       @gui.draw
     end
