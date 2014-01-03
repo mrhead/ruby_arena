@@ -3,7 +3,7 @@
 Climate](https://codeclimate.com/github/mrhead/ruby_arena.png)](https://codeclimate.com/github/mrhead/ruby_arena)
 [![Build Status](https://travis-ci.org/mrhead/ruby_arena.png)](https://travis-ci.org/mrhead/ruby_arena)
 
-![Screenshot from the game](https://github.com/mrhead/ruby_arena/blob/master/screenshot.png)
+![Screenshot from the game](https://github.com/mrhead/ruby_arena/blob/master/screenshot.png?raw=true)
 
 Ruby Arena is a game for programmers and people who wants to learn how to program in Ruby.
 
