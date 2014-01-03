@@ -76,25 +76,41 @@ describe Robot do
     it 'changes heading by given value' do
       robot = robot(heading: 0)
 
-      robot.turn(10)
+      robot.turn(5)
 
-      expect(robot.heading).to be 10
+      expect(robot.heading).to be 5
+    end
+
+    it 'changes heading maximum by MAX_TURN_ANGLE' do
+      robot = robot(heading: 0)
+
+      robot.turn(100)
+
+      expect(robot.heading).to be Robot::MAX_TURN_ANGLE
+    end
+
+    it 'changes heading maximum by MAX_TURN_ANGLE for negative values' do
+      robot = robot(heading: 100)
+
+      robot.turn(-100)
+
+      expect(robot.heading).to be(100-Robot::MAX_TURN_ANGLE)
     end
 
     it 'changes gun heading by given value' do
       robot = robot(heading: 0)
 
-      robot.turn(20)
+      robot.turn(5)
 
-      expect(robot.gun_heading).to be 20
+      expect(robot.gun_heading).to be 5
     end
 
     it 'changes radar heading by given value' do
       robot = robot(heading: 0)
 
-      robot.turn(20)
+      robot.turn(5)
 
-      expect(robot.radar_heading).to be 20
+      expect(robot.radar_heading).to be 5
     end
   end
 
@@ -105,6 +121,22 @@ describe Robot do
       robot.turn_gun(10)
 
       expect(robot.gun_heading).to be 10
+    end
+
+    it 'changes gun heading maximum by MAX_TURN_GUN_ANGLE' do
+      robot = robot(gun_heading: 0)
+
+      robot.turn_gun(100)
+
+      expect(robot.gun_heading).to be Robot::MAX_TURN_GUN_ANGLE
+    end
+
+    it 'changes gun heading maximum by MAX_TURN_GUN_ANGLE for negative values' do
+      robot = robot(gun_heading: 100)
+
+      robot.turn_gun(-100)
+
+      expect(robot.gun_heading).to be(100-Robot::MAX_TURN_GUN_ANGLE)
     end
 
     it 'changes radar heading by given value' do
@@ -123,6 +155,22 @@ describe Robot do
       robot.turn_radar(10)
 
       expect(robot.radar_heading).to be 10
+    end
+
+    it 'changes radar heading maximum by MAX_TURN_RADAR_ANGLE' do
+      robot = robot(radar_heading: 0)
+
+      robot.turn_radar(100)
+
+      expect(robot.radar_heading).to be Robot::MAX_TURN_RADAR_ANGLE
+    end
+
+    it 'changes radar heading maximum by MAX_TURN_RADAR_ANGLE for negative values' do
+      robot = robot(radar_heading: 100)
+
+      robot.turn_radar(-100)
+
+      expect(robot.radar_heading).to be(100-Robot::MAX_TURN_RADAR_ANGLE)
     end
   end
 
