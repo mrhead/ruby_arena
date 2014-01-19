@@ -52,6 +52,23 @@ describe Arena do
     end
   end
 
+  describe '#game_over?' do
+    it 'returns false with empty arena' do
+      expect(arena.game_over?).to be false
+    end
+
+    it 'returns true if number of alive robots drops to 1 and less' do
+      robot1 = double('robot1', dead?: false, tick: nil, update: nil)
+      robot2 = double('robot2', dead?: true, tick: nil, update: nil)
+
+      arena.add_robot(robot1)
+      arena.add_robot(robot2)
+      arena.update
+
+      expect(arena.game_over?). to be true
+    end
+  end
+
   def arena
     @_arena ||= Arena.new
   end

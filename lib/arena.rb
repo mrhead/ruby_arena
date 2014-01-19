@@ -2,16 +2,18 @@ class Arena
   WIDTH = 800
   HEIGHT = 600
 
-  attr_reader :robots, :bullets, :time
+  attr_reader :robots, :bullets, :time, :total_robots_count
 
   def initialize
     @robots = []
     @bullets = []
     @time = 0
+    @total_robots_count = 0
   end
 
   def add_robot(robot)
     @robots << robot
+    @total_robots_count += 1
   end
 
   def add_bullet(bullet)
@@ -25,6 +27,14 @@ class Arena
     remove_dead_robots
     remove_dead_bullets
     update_time
+  end
+
+  def game_over?
+    robots_count <= 1 and total_robots_count > 1
+  end
+
+  def robots_count
+    robots.count
   end
 
   def width

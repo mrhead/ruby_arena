@@ -18,6 +18,10 @@ class Game
     gui.show
   end
 
+  def game_over?
+    arena.game_over?
+  end
+
   private
 
   def gui
