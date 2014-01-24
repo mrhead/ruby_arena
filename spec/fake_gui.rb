@@ -1,5 +1,4 @@
-require 'gosu'
-require 'gui'
+require 'spec_helper'
 
 class FakeGosuWindow
   def stub(*args)
@@ -19,7 +18,7 @@ Gosu::Window = FakeGosuWindow
 GuiBackup = Gui
 self.class.send(:remove_const, :Gui)
 
-load 'gui.rb' # reload gui.rb after stubbing
+load 'ruby_arena/gui.rb' # reload gui.rb after stubbing
 
 FakeGui = Gui # catch the stubbed gui
 

@@ -1,7 +1,3 @@
-require_relative 'command_parser'
-require_relative 'bullet'
-require_relative 'value_sanitizer'
-
 class Robot
   include Movable
 

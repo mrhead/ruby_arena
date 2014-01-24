@@ -1,4 +1,4 @@
-require 'command_parser'
+require 'spec_helper'
 
 describe CommandParser do
   describe '#turn' do

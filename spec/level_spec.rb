@@ -1,4 +1,4 @@
-require 'level'
+require 'spec_helper'
 
 describe Level do
   before do

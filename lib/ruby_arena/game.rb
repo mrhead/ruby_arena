@@ -1,9 +1,3 @@
-require_relative 'arena'
-require_relative 'class_loader'
-require_relative 'gui'
-require_relative 'robot'
-require_relative 'level'
-
 class Game
   attr_reader :arena, :level
 

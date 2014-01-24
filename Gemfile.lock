@@ -1,8 +1,14 @@
+PATH
+  remote: .
+  specs:
+    ruby_arena (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
     gosu (0.7.50)
+    rake (10.1.1)
     rspec (3.0.0.beta1)
       rspec-core (= 3.0.0.beta1)
       rspec-expectations (= 3.0.0.beta1)
@@ -18,5 +24,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1.5)
   gosu
+  rake
   rspec (~> 3.0.0.beta1)
+  ruby_arena!

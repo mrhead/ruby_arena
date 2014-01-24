@@ -1,4 +1,4 @@
-require 'bullet_renderer'
+require 'spec_helper'
 
 describe BulletRenderer do
 end

@@ -1,4 +1,4 @@
-require 'option_parser'
+require 'spec_helper'
 
 describe OptionParser do
   describe '.parse' do

@@ -1,6 +1,3 @@
-require_relative 'level0'
-require_relative 'level1'
-
 class Level
   LEVELS = {
     0 => {

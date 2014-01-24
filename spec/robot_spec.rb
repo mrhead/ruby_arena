@@ -1,5 +1,4 @@
-require 'robot'
-require 'movable_tests'
+require 'spec_helper'
 
 describe Robot do
   let(:klass) { Robot }

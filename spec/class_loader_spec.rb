@@ -1,4 +1,4 @@
-require 'class_loader'
+require 'spec_helper'
 
 describe ClassLoader do
   describe '#class_from_file' do

@@ -1,7 +1,3 @@
-require 'gosu'
-require_relative 'robot_renderer'
-require_relative 'bullet_renderer'
-
 class Gui < Gosu::Window
   WIDTH = 800
   HEIGHT = 600

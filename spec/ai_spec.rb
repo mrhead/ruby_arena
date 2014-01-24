@@ -1,4 +1,4 @@
-require 'ai'
+require 'spec_helper'
 
 describe Ai do
   describe '#tick' do

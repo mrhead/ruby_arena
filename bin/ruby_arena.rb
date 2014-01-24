@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/option_parser'
-require_relative '../lib/game'
+require 'ruby_arena'
 
 options = OptionParser.parse(ARGV)
 

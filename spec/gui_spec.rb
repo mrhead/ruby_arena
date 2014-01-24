@@ -1,4 +1,4 @@
-require 'fake_gui'
+require 'spec_helper'
 
 describe Gui do
   let(:robot) do

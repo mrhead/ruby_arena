@@ -1,4 +1,4 @@
-require 'value_sanitizer'
+require 'spec_helper'
 
 describe ValueSanitizer do
   describe '.sanitize' do

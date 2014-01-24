@@ -1,5 +1,3 @@
-require_relative 'movable'
-
 class Bullet
   include Movable
 

@@ -1,5 +1,4 @@
-require 'bullet'
-require 'movable_tests'
+require 'spec_helper'
 
 describe Bullet do
   it_behaves_like 'movable'

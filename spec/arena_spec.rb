@@ -1,4 +1,4 @@
-require 'arena'
+require 'spec_helper'
 
 describe Arena do
   describe '#add_robot' do

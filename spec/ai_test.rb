@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 class AiTest
   def initialize(args = {})
 
