@@ -1,4 +1,5 @@
 require 'gosu'
+require 'optparse'
 
 require 'ruby_arena/ai'
 require 'ruby_arena/arena'

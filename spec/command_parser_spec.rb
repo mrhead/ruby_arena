@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CommandParser do
+describe RubyArena:: CommandParser do
   describe '#turn' do
     it 'sets turn to given value' do
       command_parser.turn(10)
@@ -67,6 +67,6 @@ describe CommandParser do
   end
 
   def command_parser
-    @_command_parser ||= CommandParser.new
+    @_command_parser ||= RubyArena::CommandParser.new
   end
 end

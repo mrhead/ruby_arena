@@ -1,5 +1,3 @@
-require 'optparse'
-
 class OptionParser
   def self.parse(args)
     options = {}

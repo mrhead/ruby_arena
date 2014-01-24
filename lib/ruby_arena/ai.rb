@@ -1,66 +1,68 @@
-class Ai
-  attr_reader :robot, :command_parser
+module RubyArena
+  class Ai
+    attr_reader :robot, :command_parser
 
-  def initialize(args)
-    @robot = args.fetch(:robot)
-    @command_parser = args.fetch(:command_parser)
-  end
+    def initialize(args)
+      @robot = args.fetch(:robot)
+      @command_parser = args.fetch(:command_parser)
+    end
 
-  def tick
-    raise NotImplementedError, 'Your robot should implement tick method'
-  end
+    def tick
+      raise NotImplementedError, 'Your robot should implement tick method'
+    end
 
-  private
+    private
 
-  def x
-    @robot.x
-  end
+    def x
+      @robot.x
+    end
 
-  def y
-    @robot.y
-  end
+    def y
+      @robot.y
+    end
 
-  def speed
-    @robot.speed
-  end
+    def speed
+      @robot.speed
+    end
 
-  def heading
-    @robot.heading
-  end
+    def heading
+      @robot.heading
+    end
 
-  def time
-    robot.time
-  end
+    def time
+      robot.time
+    end
 
-  def radar_view_angle
-    robot.radar_view_angle
-  end
+    def radar_view_angle
+      robot.radar_view_angle
+    end
 
-  def turn(angle)
-    command_parser.turn(angle)
-  end
+    def turn(angle)
+      command_parser.turn(angle)
+    end
 
-  def turn_gun(angle)
-    command_parser.turn_gun(angle)
-  end
+    def turn_gun(angle)
+      command_parser.turn_gun(angle)
+    end
 
-  def turn_radar(angle)
-    command_parser.turn_radar(angle)
-  end
+    def turn_radar(angle)
+      command_parser.turn_radar(angle)
+    end
 
-  def accelerate
-    command_parser.accelerate
-  end
+    def accelerate
+      command_parser.accelerate
+    end
 
-  def decelerate
-    command_parser.decelerate
-  end
+    def decelerate
+      command_parser.decelerate
+    end
 
-  def fire
-    command_parser.fire
-  end
+    def fire
+      command_parser.fire
+    end
 
-  def set_radar_view_angle(angle)
-    command_parser.radar_view_angle(angle)
+    def set_radar_view_angle(angle)
+      command_parser.radar_view_angle(angle)
+    end
   end
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bullet do
+describe RubyArena:: Bullet do
   it_behaves_like 'movable'
 
   describe '#intersect?' do
@@ -31,6 +31,6 @@ describe Bullet do
       arena: nil,
       origin: nil
     }
-    @_bullet ||= Bullet.new(defaults.merge(args))
+    @_bullet ||= RubyArena::Bullet.new(defaults.merge(args))
   end
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Gui do
+describe RubyArena:: Gui do
   let(:robot) do
     double('robot',
             heading: 0,
@@ -31,7 +31,7 @@ describe Gui do
   describe '#draw' do
     it 'notifies each robot renderer' do
       robot_renderer = double('robot_renderer')
-      allow(RobotRenderer).to receive(:new) { robot_renderer }
+      allow(RubyArena::RobotRenderer).to receive(:new) { robot_renderer }
 
       expect(robot_renderer).to receive(:draw)
 
@@ -40,7 +40,7 @@ describe Gui do
 
     it 'notifies each bullet renderer' do
       bullet_renderer = double('bullet_renderer')
-      allow(BulletRenderer).to receive(:new) { bullet_renderer }
+      allow(RubyArena::BulletRenderer).to receive(:new) { bullet_renderer }
 
       expect(bullet_renderer).to receive(:draw)
 

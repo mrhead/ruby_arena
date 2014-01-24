@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe RobotRenderer do
+describe RubyArena:: RobotRenderer do
 end

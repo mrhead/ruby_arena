@@ -1,18 +1,18 @@
-require 'gosu'
+module RubyArena
+  module Movable
+    def move
+      @x += offset_x(heading, speed)
+      @y += offset_y(heading, speed)
+    end
 
-module Movable
-  def move
-    @x += offset_x(heading, speed)
-    @y += offset_y(heading, speed)
-  end
+    private
 
-  private
+    def offset_x(heading, speed)
+      Gosu.offset_x(heading, speed)
+    end
 
-  def offset_x(heading, speed)
-    Gosu.offset_x(heading, speed)
-  end
-
-  def offset_y(heading, speed)
-    Gosu.offset_y(heading, speed)
+    def offset_y(heading, speed)
+      Gosu.offset_y(heading, speed)
+    end
   end
 end

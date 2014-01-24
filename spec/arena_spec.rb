@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Arena do
+describe RubyArena:: Arena do
   describe '#add_robot' do
     it 'adds new robot' do
       arena.add_robot(:robot)
@@ -70,7 +70,7 @@ describe Arena do
   end
 
   def arena
-    @_arena ||= Arena.new
+    @_arena ||= RubyArena::Arena.new
   end
 
   def robot(args = {})

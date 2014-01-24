@@ -15,14 +15,14 @@ GosuWindowBackup = Gosu::Window
 Gosu.send(:remove_const, :Window)
 Gosu::Window = FakeGosuWindow
 
-GuiBackup = Gui
-self.class.send(:remove_const, :Gui)
+GuiBackup = RubyArena::Gui
+RubyArena.send(:remove_const, :Gui)
 
 load 'ruby_arena/gui.rb' # reload gui.rb after stubbing
 
-FakeGui = Gui # catch the stubbed gui
+FakeGui = RubyArena::Gui # catch the stubbed gui
 
-self.class.send(:remove_const, :Gui)
-Gui = GuiBackup # restore things
+RubyArena::send(:remove_const, :Gui)
+RubyArena::Gui = GuiBackup # restore things
 Gosu.send(:remove_const, :Window)
 Gosu::Window = GosuWindowBackup

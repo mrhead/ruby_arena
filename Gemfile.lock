@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby_arena (0.0.1)
+    ruby_arena (0.0.1.alpha)
 
 GEM
   remote: https://rubygems.org/

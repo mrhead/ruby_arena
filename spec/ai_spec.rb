@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Ai do
+describe RubyArena:: Ai do
   describe '#tick' do
     it 'raises NotImplementedError' do
-      ai = Ai.new(robot: nil, command_parser: nil)
+      ai = RubyArena::Ai.new(robot: nil, command_parser: nil)
 
       expect { ai.tick }.to raise_error NotImplementedError
     end

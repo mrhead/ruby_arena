@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Robot do
+describe RubyArena:: Robot do
   let(:klass) { Robot }
 
   it_behaves_like 'movable'
@@ -85,7 +85,7 @@ describe Robot do
 
       robot.turn(100)
 
-      expect(robot.heading).to be Robot::MAX_TURN_ANGLE
+      expect(robot.heading).to be RubyArena::Robot::MAX_TURN_ANGLE
     end
 
     it 'changes heading maximum by MAX_TURN_ANGLE for negative values' do
@@ -93,7 +93,7 @@ describe Robot do
 
       robot.turn(-100)
 
-      expect(robot.heading).to be(100-Robot::MAX_TURN_ANGLE)
+      expect(robot.heading).to be(100-RubyArena::Robot::MAX_TURN_ANGLE)
     end
 
     it 'changes gun heading by given value' do
@@ -127,7 +127,7 @@ describe Robot do
 
       robot.turn_gun(100)
 
-      expect(robot.gun_heading).to be Robot::MAX_TURN_GUN_ANGLE
+      expect(robot.gun_heading).to be RubyArena::Robot::MAX_TURN_GUN_ANGLE
     end
 
     it 'changes gun heading maximum by MAX_TURN_GUN_ANGLE for negative values' do
@@ -135,7 +135,7 @@ describe Robot do
 
       robot.turn_gun(-100)
 
-      expect(robot.gun_heading).to be(100-Robot::MAX_TURN_GUN_ANGLE)
+      expect(robot.gun_heading).to be(100-RubyArena::Robot::MAX_TURN_GUN_ANGLE)
     end
 
     it 'changes radar heading by given value' do
@@ -161,7 +161,7 @@ describe Robot do
 
       robot.turn_radar(100)
 
-      expect(robot.radar_heading).to be Robot::MAX_TURN_RADAR_ANGLE
+      expect(robot.radar_heading).to be RubyArena::Robot::MAX_TURN_RADAR_ANGLE
     end
 
     it 'changes radar heading maximum by MAX_TURN_RADAR_ANGLE for negative values' do
@@ -169,7 +169,7 @@ describe Robot do
 
       robot.turn_radar(-100)
 
-      expect(robot.radar_heading).to be(100-Robot::MAX_TURN_RADAR_ANGLE)
+      expect(robot.radar_heading).to be(100-RubyArena::Robot::MAX_TURN_RADAR_ANGLE)
     end
   end
 
@@ -285,7 +285,7 @@ describe Robot do
       arena: arena
     }
 
-    @_robot ||= Robot.new(defaults.merge(args))
+    @_robot ||= RubyArena::Robot.new(defaults.merge(args))
   end
 
   def arena

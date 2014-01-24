@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe BulletRenderer do
+describe RubyArena:: BulletRenderer do
 end
