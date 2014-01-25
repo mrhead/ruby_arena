@@ -3,8 +3,8 @@ class OptionParser
     options = {}
 
     opt_parser = OptionParser.new do |opts|
-      opts.banner = %{Usage: ruby_arena.rb -l <level> [ai_file]
-Usage: ruby_arena.rb <ai_file1> [ai_file2] ... [ai_fileN]
+      opts.banner = %{Usage: ruby_arena -l <level> [ai_file]
+Usage: ruby_arena <ai_file1> [ai_file2] ... [ai_fileN]
       }
 
       opts.on("-l", "--level level_number", Integer, "Specify level") do |l|
