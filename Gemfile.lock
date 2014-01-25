@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    ruby_arena (0.0.1.alpha)
+    ruby_arena (0.0.2)
+      gosu
 
 GEM
   remote: https://rubygems.org/
@@ -25,7 +26,6 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.5)
-  gosu
   rake
   rspec (~> 3.0.0.beta1)
   ruby_arena!
