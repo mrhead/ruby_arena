@@ -107,10 +107,14 @@ However you can already start the game and the battle between robots! Detais wer
 3. Do your changes
 4. Create pull request
 
-### Rules for contribution
+## Rules for contribution
 
 * Everything needs to be tested! Well not everything. I really do not have an idea how to test Gui. But rest of the code must be tested before merging to master. If you do not now how to test it, than open new issue and we can discuss it.
 * If something is hard to implement or change, then please refactor the code first so change is easy and then implement it.
+
+## License
+
+ruby_arena is Copyright © 2013-2014 Patrik Bóna. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/mrhead/ruby_arena/blob/master/LICENSE.md) file.
 
 [robocode]: http://robocode.sourceforge.net/
 [rrobots]: http://rrobots.rubyforge.org/
