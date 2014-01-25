@@ -20,22 +20,20 @@ This project has been inspired by [robocode][robocode] (Java, .NET) and [rrobots
 ## How to run arena (and battles)
 
 ```
-git@github.com:mrhead/ruby_arena.git
-cd ruby_arena
-bundle # or gem install gosu
-./bin/ruby_arena.rb path_to/robot.rb path_to/another_robot.rb
+gem install ruby_arena
+ruby_arena path_to/robot.rb path_to/another_robot.rb
 ```
 
 You can run game with some predefined robots (levels).
 
 ```
-./bin/ruby_arena.rb -l 0 path_to/your_ai.rb
+ruby_arena -l 0 path_to/your_ai.rb
 ```
 
 You can see example robot here: https://gist.github.com/mrhead/7917528. Just put it to some dir in ruby_arena.
 
 ```
-./bin/ruby_arena.rb test_robots/test_ai.rb test_robots/test_ai.rb # ...
+ruby_arena test_robots/test_ai.rb test_robots/test_ai.rb # ...
 ```
 
 ### Example robots (AIs)
@@ -50,10 +48,10 @@ Please note that mentioned Ais are not were nice (code) and pretty stupid right 
 
 ### How to create your own robot (AI)
 
-Just extend `Ai` class and implement your own `#tick` method.
+Just extend `RubyArena::Ai` class and implement your own `#tick` method.
 
 ```
-class TestAi < Ai
+class TestAi < RubyArena::Ai
   def tick(events)
     fire # do nothing but fire when possible
   end
