@@ -92,7 +92,7 @@ turn(2)
 turn(2)
 ```
 
-Will do just turn by 2 degrees. In is the same for other actions.
+Will do just turn by 2 degrees. It is the same for other actions.
 
 ## Current status
 
