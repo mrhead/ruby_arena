@@ -15,7 +15,7 @@ describe RubyArena::Level do
     it 'returns options for cpu robots' do
       level = RubyArena::Level.new(0)
 
-      expect(level.options_for_cpu_robots.first).to eq({ ai: RubyArena::Level0, x: 600, y: 300 })
+      expect(level.options_for_cpu_robots.first).to eq({ ai: RubyArena::Level0Ai, x: 600, y: 300, heading: 90 })
     end
   end
 
@@ -23,7 +23,7 @@ describe RubyArena::Level do
     it 'returns options for user robot' do
       level = RubyArena::Level.new(0)
 
-      expect(level.options_for_user_robot).to eq({ x: 200, y: 300 })
+      expect(level.options_for_user_robot).to eq({ x: 200, y: 300, heading: 90 })
     end
   end
 end
