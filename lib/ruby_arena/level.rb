@@ -3,13 +3,13 @@ module RubyArena
     LEVELS = {
       0 => {
         robots: [
-          { ai: Level0, x: 600, y: 300 }
+          { ai: Level0Ai, x: 600, y: 300 }
         ],
         user_robot_options: { x: 200, y: 300 }
       },
       1 => {
         robots: [
-          { ai: Level1, x: 600, y: 300 }
+          { ai: Level1Ai, x: 600, y: 300 }
         ],
         user_robot_options: { x: 200, y: 300 }
       }

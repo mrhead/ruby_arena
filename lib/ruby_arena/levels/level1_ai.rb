@@ -1,5 +1,5 @@
 module RubyArena
-  class Level1 < Ai
+  class Level1Ai < Ai
     def tick(events)
       set_radar_view_angle(5)
       turn_gun(4)
