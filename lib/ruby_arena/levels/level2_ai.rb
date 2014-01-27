@@ -1,6 +1,7 @@
 module RubyArena
-  class Level1Ai < Ai
+  class Level2Ai < Ai
     def tick(events)
+      fire
     end
   end
 end
