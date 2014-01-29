@@ -26,7 +26,7 @@ ruby_arena path_to/robot.rb path_to/another_robot.rb
 
 You can run game with some predefined robots (levels).
 
-```s
+```
 ruby_arena -l 0 path_to/your_ai.rb
 ```
 
