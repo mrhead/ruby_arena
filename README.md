@@ -26,25 +26,15 @@ ruby_arena path_to/robot.rb path_to/another_robot.rb
 
 You can run game with some predefined robots (levels).
 
-```
+```s
 ruby_arena -l 0 path_to/your_ai.rb
-```
-
-You can see example robot here: https://gist.github.com/mrhead/7917528. Just put it to some dir in ruby_arena.
-
-```
-ruby_arena test_robots/test_ai.rb test_robots/test_ai.rb # ...
 ```
 
 ### Example robots (AIs)
 
-If you have your own robot (well AI), then please publish it as gist and then add it here:
+You can use [source code of level robots](https://github.com/mrhead/ruby_arena/tree/master/lib/ruby_arena/levels) as reference.
 
-* https://gist.github.com/mrhead/7917528
-* https://gist.github.com/mrhead/8086991
-* https://gist.github.com/mrhead/8087011
-
-Please note that mentioned Ais are not were nice (code) and pretty stupid right now, but at least you can try to run them.
+If you have your own robots (well AIs), then feel free to publish them as gists and add them here.
 
 ### How to create your own robot (AI)
 
@@ -112,9 +102,12 @@ However you can already start the game and the battle between robots! Detais wer
 * Everything needs to be tested! Well not everything. I really do not have an idea how to test Gui. But rest of the code must be tested before merging to master. If you do not now how to test it, than open new issue and we can discuss it.
 * If something is hard to implement or change, then please refactor the code first so change is easy and then implement it.
 
+### Contributors
+
+I would like to thank to each of the [contributors](https://github.com/mrhead/ruby_arena/graphs/contributors).
+
 ## License
 
-ruby_arena is Copyright © 2013-2014 Patrik Bóna. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/mrhead/ruby_arena/blob/master/LICENSE.md) file.
-
+[MIT LICENSE](https://github.com/mrhead/ruby_arena/blob/master/LICENSE.md)
 [robocode]: http://robocode.sourceforge.net/
 [rrobots]: http://rrobots.rubyforge.org/
