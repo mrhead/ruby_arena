@@ -40,7 +40,7 @@ module RubyArena
       execute_actions(actions)
       reset_actions
       move
-      fix_position
+      keep_robot_in_arena
     end
 
     def execute_actions(actions)
@@ -166,7 +166,7 @@ module RubyArena
       arena.robots.find_all { |robot| robot != self }
     end
 
-    def fix_position
+    def keep_robot_in_arena
       @x = min_x if x < min_x
       @x = max_x if x > max_x
       @y = min_y if y < min_y
